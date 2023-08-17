@@ -154,7 +154,7 @@ class ModelArguments:
                 "Override the default `torch.dtype` and load the model under this dtype. If `auto` is passed, the "
                 "dtype will be automatically derived from the model's weights."
             ),
-            "choices": ["auto", "bfloat16", "float16", "float32"],
+            "choices": ["auto", "float16", "float32"],
         },
     )
 
@@ -437,7 +437,7 @@ def main():
         load_in_4bit=True,
         bnb_4bit_use_double_quant=True,
         bnb_4bit_quant_type="nf4",
-        bnb_4bit_compute_dtype=torch.bfloat16
+        bnb_4bit_compute_dtype=torch.float16
     )
     if model_args.model_name_or_path:
         torch_dtype = (
