@@ -4,7 +4,7 @@ if [ ! -d ${output_model} ];then
     mkdir ${output_model}
 fi
 cp ./finetune.sh ${output_model}
-CUDA_VISIBLE_DEVICES=0,1 deepspeed --num_gpus=2  finetune_clm_lora.py \
+CUDA_VISIBLE_DEVICES=0 deepspeed --num_gpus=1  finetune_clm_lora.py \
     --model_name_or_path meta-llama/Llama-2-7b-chat-hf \
     --train_files ../../data/train_sft.csv \
     --validation_files  ../../data/dev_sft.csv \
