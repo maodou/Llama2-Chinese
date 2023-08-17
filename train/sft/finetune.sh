@@ -5,7 +5,7 @@ if [ ! -d ${output_model} ];then
 fi
 cp ./finetune.sh ${output_model}
 CUDA_VISIBLE_DEVICES=0 deepspeed --num_gpus=1  finetune_clm_lora.py \
-    --model_name_or_path meta-llama/Llama-2-7b-chat-hf \
+    --model_name_or_path NousResearch/Llama-2-7b-chat-hf \
     --train_files ../../data/train_sft.csv \
     --validation_files  ../../data/dev_sft.csv \
     --per_device_train_batch_size 1 \
