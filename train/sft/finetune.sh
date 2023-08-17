@@ -40,9 +40,9 @@ CUDA_VISIBLE_DEVICES=0,1 deepspeed --num_gpus=2  finetune_clm_lora.py \
     --overwrite_output_dir \
     --deepspeed ds_config_zero2.json \
     --ignore_data_skip true \
-    --bf16 \
+    --f16 \
     --gradient_checkpointing \
-    --bf16_full_eval \
+    --f16_full_eval \
     --ddp_timeout 18000000 \
     | tee -a ${output_model}/train.log
     
